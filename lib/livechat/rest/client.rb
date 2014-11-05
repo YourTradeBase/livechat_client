@@ -17,7 +17,7 @@ module LiveChat
         :host => 'api.livechatinc.com',
         :port => 443,
         :use_ssl => true,
-        :ssl_version => 'tls1',
+        :ssl_version => :TLSv1,
         :ssl_verify_peer => true,
         :ssl_ca_file => File.dirname(__FILE__) + '/../../../conf/cacert.pem',
         :timeout => 30,

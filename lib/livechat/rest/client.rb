@@ -101,6 +101,7 @@ module LiveChat
       # This is a private method documented for completeness.
       def set_up_ssl # :doc:
         @connection.use_ssl = @config[:use_ssl]
+        @connection.ssl_version = "tls1"
         if @config[:ssl_verify_peer]
           @connection.verify_mode = OpenSSL::SSL::VERIFY_PEER
           @connection.ca_file = @config[:ssl_ca_file]

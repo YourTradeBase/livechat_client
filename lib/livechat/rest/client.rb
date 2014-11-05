@@ -17,6 +17,7 @@ module LiveChat
         :host => 'api.livechatinc.com',
         :port => 443,
         :use_ssl => true,
+        :ssl_version => 'tls1',
         :ssl_verify_peer => true,
         :ssl_ca_file => File.dirname(__FILE__) + '/../../../conf/cacert.pem',
         :timeout => 30,
@@ -101,7 +102,7 @@ module LiveChat
       # This is a private method documented for completeness.
       def set_up_ssl # :doc:
         @connection.use_ssl = @config[:use_ssl]
-        @connection.ssl_version = "tls1"
+        @connection.ssl_version = @config[:ssl_version]
         if @config[:ssl_verify_peer]
           @connection.verify_mode = OpenSSL::SSL::VERIFY_PEER
           @connection.ca_file = @config[:ssl_ca_file]
